@@ -53,3 +53,19 @@ a:hover {
 .icons a:hover {
     color: #1565c0;
 }
+
+nav {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1em;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
