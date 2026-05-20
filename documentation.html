@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentation | Landon C.L. Liu</title>
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet" />
+    <style>
+      #content { text-align: left; }
+      .post-date { color: #888; font-size: 0.9em; }
+      .post { margin-bottom: 3em; border-bottom: 1px solid #eee; padding-bottom: 2em; }
+      code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+    </style>
+  </head>
+  <body>
+    <section id="content">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="cv.html">CV</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
+
+      <h1>Documentation & Notes</h1>
+      <p>A running log of technical setup, workflows, and notes on how this site and research infrastructure was built.</p>
+
+      <div class="post">
+        <h2>Setting Up My Research Infrastructure</h2>
+        <p class="post-date">May 19, 2026</p>
+
+        <p>
+          Today I worked with <a href="https://claude.ai">Claude (Anthropic)</a> to set up a complete research and computing infrastructure from scratch. What started as a laptop recommendation turned into a full day of productive system design. Here's what we built.
+        </p>
+
+        <h3>Hardware Setup</h3>
+        <p>
+          After a lengthy conversation about needs — PhD work in agent-based modeling, some gaming, portability, and a tight budget — we landed on a two-device setup:
+        </p>
+        <ul style="text-align:left;">
+          <li><strong>ASUS TUF Gaming A15 (2020)</strong> — repurposed as a permanent desktop node after a bike accident bent the screen. Ryzen 7 4800H + GTX 1650, runs Linux VMs and heavy simulations.</li>
+          <li><strong>ThinkPad E14 (incoming)</strong> — lightweight portable machine for office and campus use, connects to the TUF remotely.</li>
+          <li><strong>iPad</strong> — on-the-go companion for reading, notes, and remote access.</li>
+        </ul>
+
+        <h3>Remote Access with Tailscale + xrdp</h3>
+        <p>
+          We configured the TUF as an always-on desktop node using Windows power settings. The plan is to run a Linux VM with <code>xrdp</code> and connect via <a href="https://tailscale.com">Tailscale</a> from both the ThinkPad and iPad. This means heavy compute is always reachable from anywhere without exposing ports publicly.
+        </p>
+
+        <h3>Git & GitHub Setup</h3>
+        <p>
+          Claude walked me through setting up Git and GitHub CLI on both Windows and WSL, generating SSH keys, and pushing three repositories:
+        </p>
+        <ul style="text-align:left;">
+          <li><a href="https://github.com/lclliu-tree/Alignment_Game">Alignment_Game</a> — replication code for my MAS paper, tagged <code>v1.0-replication</code></li>
+          <li><a href="https://github.com/lclliu-tree/NottenLiuTarasuk2025">NottenLiuTarasuk2025</a> — replication code for Notten, Liu & Tarasuk (2025), tagged <code>v1.0-replication</code></li>
+          <li><a href="https://github.com/lclliu-tree/alignment-game-abm">alignment-game-abm</a> — new Python package for network simulations of nonsymmetric alignment games (in development)</li>
+        </ul>
+
+        <h3>CV Auto-Compilation</h3>
+        <p>
+          We linked Overleaf (via CMU's institutional license) to GitHub, and set up a GitHub Actions workflow that automatically compiles my LaTeX CV to PDF on every push. No more manually exporting PDFs.
+        </p>
+
+        <h3>This Website</h3>
+        <p>
+          This site is built on the <a href="https://github.com/timothygebhard/minimal-academic-website">minimal-academic-website</a> template by Timothy Gebhard, hosted on GitHub Pages. Claude helped set up the repository, customize the HTML/CSS, add navigation, and create the Research and CV pages. The whole thing is version-controlled and free to host.
+        </p>
+
+        <p>
+          Big thanks to Claude (Anthropic's Claude Sonnet) for being a patient and knowledgeable collaborator throughout this entire process — from laptop shopping to git commits. 🤖
+        </p>
+      </div>
+
+    </section>
+  </body>
+</html>
